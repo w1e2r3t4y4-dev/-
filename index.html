@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة فخر الهندسة - حي الهندسة الرقمي</title>
+    <!-- Tailwind CSS for modern layout utilities -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font: Cairo for professional Arabic typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome for engineering and UI icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        /* Engineering Blueprint & Neon Aesthetic Background */
+        body {
+            background-color: #070b12;
+            background-image: 
+                linear-gradient(rgba(14, 165, 233, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(14, 165, 233, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: #f1f5f9;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Custom Neon Glows & Glassmorphism */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            box-shadow: 0 0 25px rgba(14, 165, 233, 0.07), inset 0 0 15px rgba(14, 165, 233, 0.03);
+        }
+
+        .neon-glow-blue {
+            box-shadow: 0 0 20px rgba(14, 165, 233, 0.35);
+        }
+
+        .neon-glow-orange {
+            box-shadow: 0 0 20px rgba(249, 115, 22, 0.35);
+        }
+
+        .text-glow-blue {
+            text-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+        }
+
+        .text-glow-orange {
+            text-shadow: 0 0 12px rgba(249, 115, 22, 0.5);
+        }
+
+        /* Rotating Gear Animation for Engineering Vibe */
+        @keyframes slowRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .gear-spin-slow {
+            animation: slowRotate 25s linear infinite;
+        }
+
+        .gear-spin-reverse {
+            animation: slowRotate 20s linear infinite reverse;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b1120;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #38bdf8;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-type relative selection:bg-sky-500 selection:text-white">
+
+    <!-- Background Decorative Gears & Blueprint Lines -->
+    <div class="fixed top-[-10%] left-[-10%] opacity-10 pointer-events-none gear-spin-slow text-sky-400 text-[18rem] z-0">
+        <i class="fa-solid fa-gear"></i>
+    </div>
+    <div class="fixed bottom-[-10%] right-[-10%] opacity-10 pointer-events-none gear-spin-reverse text-orange-500 text-[20rem] z-0">
+        <i class="fa-solid fa-cogs"></i>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container mx-auto px-4 py-8 max-w-4xl z-10 flex-grow flex flex-col justify-between">
+        
+        <!-- Header Section -->
+        <header class="text-center mb-8">
+            <div class="inline-flex items-center justify-center p-3 mb-4 rounded-2xl bg-sky-500/10 border border-sky-500/30 neon-glow-blue">
+                <i class="fa-solid fa-compass-drafting text-3xl text-sky-400 ml-3"></i>
+                <h1 class="text-3xl md:text-4xl font-black text-white tracking-wide text-glow-blue">منصة فخر الهندسة</h1>
+            </div>
+            <p class="text-slate-400 text-sm md:text-base max-w-xl mx-auto">
+                بوابتك الرقمية في حي الهندسة لتخليد إنجازاتك وصياغة رسالة فخر هندسية تنبض بالدقة والإبداع والابتكار.
+            </p>
+        </header>
+
+        <!-- Input & Form Panel -->
+        <main class="glass-panel rounded-3xl p-6 md:p-8 mb-8 transition-all duration-300">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                
+                <!-- Engineer Name Input -->
+                <div>
+                    <label for="engName" class="block text-sm font-semibold text-sky-300 mb-2">
+                        <i class="fa-solid fa-user-gear ml-1"></i> اسم المهندس / المهندسة:
+                    </label>
+                    <input type="text" id="engName" placeholder="أدخل اسمك الكريم هنا..." 
+                        class="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20 transition-all">
+                </div>
+
+                <!-- Gender Selection -->
+                <div>
+                    <label class="block text-sm font-semibold text-sky-300 mb-2">
+                        <i class="fa-solid fa-venus-mars ml-1"></i> الجنس:
+                    </label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label class="flex items-center justify-center p-3 rounded-xl bg-slate-900/80 border border-slate-700 cursor-pointer hover:border-sky-400 transition-all group has-[:checked]:border-sky-400 has-[:checked]:bg-sky-500/10">
+                            <input type="radio" name="engGender" value="male" checked class="hidden">
+                            <span class="text-sm font-bold text-slate-300 group-hover:text-sky-400 flex items-center">
+                                <i class="fa-solid fa-mars text-blue-400 ml-2"></i> ذكر (مهندس)
+                            </span>
+                        </label>
+                        <label class="flex items-center justify-center p-3 rounded-xl bg-slate-900/80 border border-slate-700 cursor-pointer hover:border-pink-400 transition-all group has-[:checked]:border-pink-400 has-[:checked]:bg-pink-500/10">
+                            <input type="radio" name="engGender" value="female" class="hidden">
+                            <span class="text-sm font-bold text-slate-300 group-hover:text-pink-400 flex items-center">
+                                <i class="fa-solid fa-venus text-pink-400 ml-2"></i> أنثى (مهندسة)
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Engineering Specialization Selection -->
+            <div class="mb-8">
+                <label for="engSpecialty" class="block text-sm font-semibold text-sky-300 mb-2">
+                    <i class="fa-solid fa-layer-group ml-1"></i> التخصص الهندسي الشامل:
+                </label>
+                <div class="relative">
+                    <select id="engSpecialty" class="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-4 py-3 text-white appearance-none focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20 transition-all cursor-pointer">
+                        <option value="civil">هندسة مدنية (باني الأساسات والعملاق الخرساني)</option>
+                        <option value="arch">هندسة معمارية (صانع الجمال والفراغات العمرانية)</option>
+                        <option value="computer">هندسة الحاسبات والذكاء الاصطناعي (مهندس العقول الرقمية والخوارزميات)</option>
+                        <option value="electrical">هندسة كهربائية (ناشر النور ومروض الطاقات الكبرى)</option>
+                        <option value="mechanical">هندسة ميكانيكية (محرك الحياة وصانع التروس والحركة)</option>
+                        <option value="telecom">هندسة الاتصالات والإلكترونيات (مذيب المسافات وجسر التواصل الكوني)</option>
+                        <option value="petroleum">هندسة البترول والتعدين (مستخرج كنوز الأرض وعصب الطاقة)</option>
+                        <option value="biomedical">هندسة الطبية الحيوية (راسم الشفاء ومطور أجهزة نبض الحياة)</option>
+                        <option value="chemical">هندسة كيميائية (مروض العناصر وساحر التفاعلات)</option>
+                        <option value="aerospace">هندسة الطيران والفضاء (قاهر الجاذبية ومستكشف الآفاق العليا)</option>
+                        <option value="nuclear">هندسة نووية (مستغل الطاقة الذرية وصانع المستقبل المتقدم)</option>
+                        <option value="production">هندسة الإنتاج والإدارة الصناعية (منظم خطوط الإنتاج ومهندس الكفاءة العظمى)</option>
+                    </select>
+                    <div class="absolute inset-y-0 left-0 flex items-center px-4 pointer-events-none text-sky-400">
+                        <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Generate Button -->
+            <button onclick="generateEngineeringPrideMessage()" class="w-full bg-gradient-to-r from-sky-500 via-blue-600 to-orange-500 text-white font-black py-4 rounded-xl shadow-lg neon-glow-blue hover:opacity-95 transform hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center text-lg">
+                <i class="fa-solid fa-certificate ml-2"></i> توليد وسام ورسالة الفخر الهندسي
+            </button>
+        </main>
+
+        <!-- Result Certificate Card (Hidden Initially) -->
+        <div id="resultSection" class="glass-panel rounded-3xl p-8 mb-8 hidden border-2 border-dashed border-sky-400 relative overflow-hidden animate-[fadeIn_0.5s_ease-in-out]">
+            
+            <!-- Corner Technical Markings -->
+            <div class="absolute top-3 right-3 text-sky-400/40 text-xs font-mono">CODE: ENG-PRIDE-2026</div>
+            <div class="absolute bottom-3 left-3 text-orange-500/40 text-xs font-mono">STATUS: VERIFIED</div>
+
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-sky-500/20 border border-sky-400/50 rounded-full flex items-center justify-center mx-auto mb-3 neon-glow-blue text-sky-400 text-2xl">
+                    <i id="resultIcon" class="fa-solid fa-medal"></i>
+                </div>
+                <h3 id="resultHeaderTitle" class="text-2xl md:text-3xl font-black text-white text-glow-blue mb-1"></h3>
+                <p id="resultSpecialtyBadge" class="text-xs uppercase tracking-widest text-orange-400 font-bold"></p>
+            </div>
+
+            <!-- Message Body -->
+            <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 md:p-8 mb-6 relative">
+                <div class="absolute -top-3 right-6 bg-sky-500 text-slate-950 text-xs font-bold px-3 py-0.5 rounded-full">
+                    رسالة فخر رسمية
+                </div>
+                <p id="resultMessageText" class="text-slate-200 leading-relaxed text-base md:text-lg text-justify"></p>
+            </div>
+
+            <!-- Action Buttons (Copy / Regenerate) -->
+            <div class="flex flex-col sm:flex-row gap-4">
+                <button onclick="copyPrideMessage()" class="flex-1 bg-slate-800 hover:bg-slate-700 border border-sky-500/40 text-sky-300 font-bold py-3 px-6 rounded-xl transition-all flex items-center justify-center">
+                    <i class="fa-regular fa-copy ml-2"></i> نسخ النص الكامل
+                </button>
+                <button onclick="resetForm()" class="flex-1 bg-slate-800 hover:bg-slate-700 border border-orange-500/40 text-orange-300 font-bold py-3 px-6 rounded-xl transition-all flex items-center justify-center">
+                    <i class="fa-solid fa-rotate-right ml-2"></i> إدخال جديد
+                </button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center text-slate-500 text-xs py-4 border-t border-slate-800/60">
+            <p>منصة فخر الهندسة &copy; 2026 | مصممة خصيصاً لتكريم صناع المستقبل ومطوري الحضارة البشرية.</p>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Database of messages tailored for male/female and all 12 specializations
+        const messagesData = {
+            civil: {
+                title: "هندسة الإنشاءات وباني الأساسات",
+                icon: "fa-building-shield",
+                male: (name) => `إلى المهندس القدير **${name}**، يا من تقف شامخاً فوق القواعد والركائز، تبني الأبراج وتشييد الجسور لتربط بين طموحات الأوطان وصلابة الصخور. أنت لست مجرد بانٍ للحجارة، بل صانع لأمان المجتمعات وأساس استقرارها. إن انحناءات الخرسانة ودقة الحسابات تشهد على بصمتك التي لا تمحى. فخورون بجهودك العظيمة التي لا تهتز!`,
+                female: (name) => `إلى المهندسة القديرة **${name}**، يا من تقفين شامخة فوق القواعد والركائز، تبنين الأبراج وتشييدين الجسور لتربطي بين طموحات الأوطان وصلابة الصخور. أنت لست مجرد بانية للحجارة، بل صانعة لأمان المجتمعات وأساس استقرارها. إن دقة حساباتك الهندسية تشهد على بصمتك المبدعة. فخورون بجهودك العظيمة التي لا تهتز!`
+            },
+            arch: {
+                title: "هندسة العمارة والجمال العمراني",
+                icon: "fa-city",
+                male: (name) => `إلى الفنان والمهندس **${name}**، يا من تحول الخطوط البيضاء الصامتة على اللوحات إلى صروح فنية حية تنبض بالحياة والجمال. أنت تمنح الأماكن روحاً وهوية فريدة، وتدمج بين صرامة الرياضيات وروعة الإبداع البصري. دمت تبدع وتزين وجه العالم بلمساتك العمرانية الساحرة!`,
+                female: (name) => `إلى الفنانة والمهندسة **${name}**، يا من تحولين الخطوط البيضاء الصامتة على اللوحات إلى صروح فنية حية تنبض بالحياة والجمال. أنت تمنحين الأماكن روحاً وهوية فريدة، وتدمجين بين صرامة الرياضيات وروعة الإبداع البصري. دمت تبدعين وتزيني وجه العالم بلمساتك العمرانية الساحرة!`
+            },
+            computer: {
+                title: "هندسة الحاسبات والذكاء الاصطناعي",
+                icon: "fa-brain",
+                male: (name) => `إلى عقل المستقبل والبرمجة **${name}**، يا من تبني عوالم افتراضية وتطور الأنظمة الذكية التي تحرك كوكبنا اليوم. بك تُختصر المسافات، وتُحل أعقد المعادلات بلمسة كود واحدة، وتصنع عقولاً اصطناعية تخدم الإنسانية. أنت مهندس العصر الرقمي وباني الغد الأشرق!`,
+                female: (name) => `إلى عقل المستقبل والبرمجة **${name}**، يا من تبنين عوالم افتراضية وتطورين الأنظمة الذكية التي تحرك كوكبنا اليوم. بك تُختصر المسافات، وتُحل أعقد المعادلات بلمسة كود واحدة، وتصنعين عقولاً اصطناعية تخدم الإنسانية. أنت مهندسة العصر الرقمي وبانية الغد الأشرق!`
+            },
+            electrical: {
+                title: "الهندسة الكهربائية والطاقة",
+                icon: "fa-bolt",
+                male: (name) => `إلى ناشر النور وطاقة الحياة **${name}**، يا من تسري الإلكترونات بأمرك لتضيء المدن المعتمة وتشعل طاقات العمل والإنتاج في كل زاوية. بجهودك الدقيقة بين الدوائر والجهود العالية، يظل العالم نابضاً بالحياة ومضاءً بالأمل والدفء.`,
+                female: (name) => `إلى ناشرة النور وطاقة الحياة **${name}**، يا من تسري الإلكترونات بأمرك لتضيئي المدن المعتمة وتشعلي طاقات العمل والإنتاج في كل زاوية. بجهودك الدقيقة بين الدوائر والجهود العالية، يظل العالم نابضاً بالحياة ومضاءً بالأمل والدفء.`
+            },
+            mechanical: {
+                title: "الهندسة الميكانيكية وديناميكا الحركة",
+                icon: "fa-gears",
+                male: (name) => `إلى محرك الحياة وقوة الدفع **${name}**، يا من تروض الآلات وتفهم حركة الكون وتترجمها إلى طاقة وحركة ميكانيكية تنفع البشرية جمعاء. بذكائك الهندسي تستمر عجلة الصناعة في الدوران وتتقدم الحضارة بخطى ثابتة نحو آفاق أوسع.`,
+                female: (name) => `إلى محركة الحياة وقوة الدفع **${name}**، يا من تروضين الآلات وتفهمين حركة الكون وتترجمينها إلى طاقة وحركة ميكانيكية تنفع البشرية جمعاء. بذكائك الهندسي تستمر عجلة الصناعة في الدوران وتتقدم الحضارة بخطى ثابتة نحو آفاق أوسع.`
+            },
+            telecom: {
+                title: "هندسة الاتصالات والإلكترونيات",
+                icon: "fa-tower-broadcast",
+                male: (name) => `إلى مقرب المسافات وصانع التواصل الكوني **${name}**، يا من تهيمن على الإشارات والأمواج لتجعل العالم كقرية صغيرة مترابطة، تجمع القلوب والأفكار عبر الكابلات والأقمار في أجزاء من الثانية. بجهودك لا توجد حدود ولا مسافات بعيدة.`,
+                female: (name) => `إلى مقربة المسافات وصانعة التواصل الكوني **${name}**، يا من تهيمنين على الإشارات والأمواج لتجعلين العالم كقرية صغيرة مترابطة، تجمعين القلوب والأفكار عبر الكابلات والأقمار في أجزاء من الثانية. بجهودك لا توجد حدود ولا مسافات بعيدة.`
+            },
+            petroleum: {
+                title: "هندسة البترول والتعدين",
+                icon: "fa-oil-well",
+                male: (name) => `إلى مستخرج كنوز الأرض وعصب الطاقة **${name}**، يا من تخترق أعماق الصخور وتستخلص الدعم والوقود الذي يحرك اقتصادات الأمم. بفضل بصيرتك الجيولوجية والدقيقة، تمد العالم بشرايين الطاقة التي تبقي الشعلة متوهجة.`,
+                female: (name) => `إلى مستخرجة كنوز الأرض وعصب الطاقة **${name}**، يا من تخترقين أعماق الصخور وتستخلصين الدعم والوقود الذي يحرك اقتصادات الأمم. بفضل بصيرتك الجيولوجية والدقيقة، تمدين العالم بشرايين الطاقة التي تبقي الشعلة متوهجة.`
+            },
+            biomedical: {
+                title: "هندسة الطبية الحيوية",
+                icon: "fa-hospital-user",
+                male: (name) => `إلى راسم الشفاء ومطور أجهزة نبض الحياة **${name}**، يا من تدمج بين دقة الهندسة ورحمة الطب لتبتكر أجهزة تعيد الأمل والنبض لقلوب المرضى وتخفف آلام البشرية. عملك ليس مجرد هندسة، بل هو رسالة إنسانية سامية بكل ما تحمله الكلمة من معنى.`,
+                female: (name) => `إلى راسة الشفاء ومطورة أجهزة نبض الحياة **${name}**، يا من تدمجين بين دقة الهندسة ورحمة الطب لتبتكرين أجهزة تعيد الأمل والنبض لقلوب المرضى وتخففين آلام البشرية. عملك ليس مجرد هندسة، بل هو رسالة إنسانية سامية بكل ما تحمله الكلمة من معنى.`
+            },
+            chemical: {
+                title: "الهندسة الكيميائية وتطوير العناصر",
+                icon: "fa-flask",
+                male: (name) => `إلى مروض العناصر وساحر التفاعلات **${name}**، يا من تفكك رموز الجزيئات وتعيد ترتيبها لتخلق مواد ودواء وطاقة تنفع البشرية وتغير وجه الصناعات الكبرى. بعقلك العلمي، تحول المخاليط المعقدة إلى حلول عبقرية نابضة بالحياة.`,
+                female: (name) => `إلى مروّضة العناصر وساحرة التفاعلات **${name}**، يا من تفككين رموز الجزيئات وتعيشين إعادة ترتيبها لتخلقي مواد ودواء وطاقة تنفع البشرية وتغير وجه الصناعات الكبرى. بعقلك العلمي، تحولين المخاليط المعقدة إلى حلول عبقرية نابضة بالحياة.`
+            },
+            aerospace: {
+                title: "هندسة الطيران والفضاء",
+                icon: "fa-rocket",
+                male: (name) => `إلى قاهر الجاذبية ومستكشف الآفاق العليا **${name}**، يا من تصمم أجنحة تخترق السحاب ومركبات تسافر بين النجوم. بعبقريتك الهندسية، تتحدى قوانين الأرض وتحلق بالطموح البشري نحو أعماق الفضاء الخارجي والمجهول الواسع.`,
+                female: (name) => `إلى قاهرة الجاذبية ومستكشفة الآفاق العليا **${name}**، يا من تصممين أجنحة تخترق السحاب ومركبات تسافر بين النجوم. بعبقريتك الهندسية، تتحدين قوانين الأرض وتحلقين بالطموح البشري نحو أعماق الفضاء الخارجي والمجهول الواسع.`
+            },
+            nuclear: {
+                title: "الهندسة النووية والجسيمات الدقيقة",
+                icon: "fa-radiation",
+                male: (name) => `إلى مستغل الطاقة الذرية وصانع المستقبل المتقدم **${name}**، يا من تروض أعظم طاقات الكون وأصغر جسيماته بدقة متناهية وحذر تام لتوليد طاقة نظيفة تسعفك في بناء الغد. أنت تتعامل مع قلب المادة بفكر واعي ومسؤولية عظيمة.`,
+                female: (name) => `إلى مستغلة الطاقة الذرية وصانعة المستقبل المتقدم **${name}**، يا من تروضين أعظم طاقات الكون وأصغر جسيماته بدقة متناهية وحذر تام لتوليد طاقة نظيفة تسعفك في بناء الغد. أنت تتعاملين مع قلب المادة بفكر واعي ومسؤولية عظيمة.`
+            },
+            production: {
+                title: "هندسة الإنتاج والإدارة الصناعية",
+                icon: "fa-industry",
+                male: (name) => `إلى مهندس الكفاءة العظمى ومنظم خطوط الإنتاج **${name}**، يا من تنسق الجهود والآلات والمواد لتخرج في النهاية منتجاً متكاملاً يخدم الأسواق والمجتمعات. بفضل رؤيتك النظامية، تدار المصانع بأعلى معايير الجودة والسرعة والذكاء التشغيلي.`,
+                female: (name) => `إلى مهندسة الكفاءة العظمى ومنظمة خطوط الإنتاج **${name}**، يا من تنسقين الجهود والآلات والمواد لتخرجي في النهاية منتجاً متكاملاً يخدم الأسواق والمجتمعات. بفضل رؤيتك النظامية، تدار المصانع بأعلى معايير الجودة والسرعة والذكاء التشغيلي.`
+            }
+        };
+
+        function generateEngineeringPrideMessage() {
+            const nameInput = document.getElementById('engName');
+            const name = nameInput.value.trim();
+            const gender = document.querySelector('input[name="engGender"]:checked').value;
+            const specialtyKey = document.getElementById('engSpecialty').value;
+
+            if (name === "") {
+                alertUserCustom("يرجى إدخال اسم المهندس أو المهندسة أولاً لتوليد الوسام.");
+                nameInput.focus();
+                return;
+            }
+
+            const specData = messagesData[specialtyKey];
+            const titlePrefix = gender === 'male' ? "المهندس المتميز" : "المهندسة المتميزة";
+            const fullTitle = `${titlePrefix} / ${name}`;
+            
+            // Get proper message based on gender function
+            const messageBody = specData[gender](name);
+
+            // Populate UI Elements
+            document.getElementById('resultHeaderTitle').innerText = fullTitle;
+            document.getElementById('resultSpecialtyBadge').innerText = specData.title;
+            document.getElementById('resultIcon').className = `fa-solid ${specData.icon}`;
+            
+            // Convert markdown bold syntax to HTML bold tags
+            document.getElementById('resultMessageText').innerHTML = messageBody.replace(/\*\*(.*?)\*\*/g, '<strong class="text-sky-300 font-bold">$1</strong>');
+
+            // Show result section with smooth scroll
+            const resultSection = document.getElementById('resultSection');
+            resultSection.classList.remove('hidden');
+            resultSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function copyPrideMessage() {
+            const title = document.getElementById('resultHeaderTitle').innerText;
+            const specialty = document.getElementById('resultSpecialtyBadge').innerText;
+            const text = document.getElementById('resultMessageText').innerText;
+            
+            const fullTextContent = `🌟 [منصة فخر الهندسة] 🌟\n\n${title}\nالتخصص: ${specialty}\n\n${text}\n\n------------------\nصُنع بكل فخر في حي الهندسة الرقمي 2026.`;
+
+            // Fallback copy method compatible with sandbox iframe restrictions
+            const textarea = document.createElement('textarea');
+            textarea.value = fullTextContent;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                alertUserCustom("تم نسخ رسالة الفخر بنجاح إلى الحافظة!");
+            } catch (err) {
+                alertUserCustom("تعذر النسخ التلقائي، يرجى النسخ اليدوي.");
+            }
+            document.body.removeChild(textarea);
+        }
+
+        function resetForm() {
+            document.getElementById('engName').value = '';
+            document.getElementById('resultSection').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Custom non-blocking modal alert box instead of standard alert()
+        function alertUserCustom(message) {
+            const existingModal = document.getElementById('customAlertModal');
+            if (existingModal) existingModal.remove();
+
+            const modal = document.createElement('div');
+            modal.id = 'customAlertModal';
+            modal.className = 'fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 animate-[fadeIn_0.3s_ease-in-out]';
+            modal.innerHTML = `
+                <div class="glass-panel border border-sky-500/40 rounded-2xl p-6 max-w-sm w-full text-center shadow-2xl">
+                    <div class="text-sky-400 text-3xl mb-3">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </div>
+                    <p class="text-slate-200 font-semibold mb-6">${message}</p>
+                    <button onclick="document.getElementById('customAlertModal').remove()" class="w-full bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold py-2.5 rounded-xl neon-glow-blue hover:opacity-90 transition-all">
+                        حسناً
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+    </script>
+
+</body>
+</html>
